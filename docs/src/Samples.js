@@ -99,5 +99,8 @@ export default {
   InputValidation:               require('fs').readFileSync(__dirname + '/../examples/InputValidation.js', 'utf8'),
   InputHorizontal:               require('fs').readFileSync(__dirname + '/../examples/InputHorizontal.js', 'utf8'),
   InputWrapper:                  require('fs').readFileSync(__dirname + '/../examples/InputWrapper.js', 'utf8'),
-  MenuItem:                      require('fs').readFileSync(__dirname + '/../examples/MenuItem.js', 'utf8')
+  MenuItem:                      require('fs').readFileSync(__dirname + '/../examples/MenuItem.js', 'utf8'),
+
+  Overlay:                       require('fs').readFileSync(__dirname + '/../examples/Overlay.js', 'utf8'),
+  OverlayTrigger:                require('fs').readFileSync(__dirname + '/../examples/OverlayTrigger.js', 'utf8')
 };

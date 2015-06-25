@@ -6,6 +6,8 @@ import Affix from '../../src/Affix';
 import Nav from '../../src/Nav';
 import SubNav from '../../src/SubNav';
 import NavItem from '../../src/NavItem';
+import Table from '../../src/Table';
+import PropRow from './PropRow';
 
 import NavMain from './NavMain';
 import PageHeader from './PageHeader';
@@ -262,19 +264,25 @@ const ComponentsPage = React.createClass({
                   <h1 id='modals' className='page-header'>Modals <small>Modal</small></h1>
 
                   <h3 id='modals-static'>A static example</h3>
-                  <p>A rendered modal with header, body, and set of actions in the footer.</p>
-                  <p>The header is added automatically if you pass in a <code>title</code> prop.</p>
+                  <p>
+                    A rendered modal with header, body, and set of actions in the footer. The <code>{'<Modal/>'}</code> Component comes with
+                    a few convenient "sub components": <code>{'<Modal.Header/>'}</code>, <code>{'<Modal.Title/>'}</code>, <code>{'<Modal.Body/>'}</code>,
+                    and <code>{'<Modal.Footer/>'}</code>, which you can use to build the Modal content.
+                  </p>
+                  <div className='bs-callout bs-callout-info'>
+                    <h4>Additional Import Options</h4>
+                    <p>
+                      The Modal Header, Title, Body, and Footer components are available as static properties the <code>{'<Modal/>'}</code> component, but you can also,
+                      import them directly from the <code>/lib</code> directory like: <code>{"require('react-bootstrap/lib/ModalHeader')"}</code>.
+                    </p>
+                  </div>
                   <ReactPlayground codeText={Samples.ModalStatic} />
 
                   <h3 id='modals-live'>Live demo</h3>
-                  <p>Use <code>&lt;ModalTrigger /&gt;</code> to create a real modal that's added to the document body when opened.</p>
+                  <p>Use <code>{'<Modal/>'}</code> in combination with other components to show or hide your Modal.</p>
                   <ReactPlayground codeText={Samples.ModalTrigger} />
 
-                  <h3 id='modals-custom'>Custom trigger</h3>
-                  <p>Use <code>OverlayMixin</code> in a custom component to manage the modal's state yourself.</p>
-                  <ReactPlayground codeText={Samples.ModalOverlayMixin} />
-
-                  <h3 id='modals-custom'>Contained Modal</h3>
+                  <h3 id='modals-contained'>Contained Modal</h3>
                   <p>You will need to add the following css to your project and ensure that your container has the <code>modal-container</code> class.</p>
                   <pre>
                     {React.DOM.code(null,
@@ -306,49 +314,68 @@ const ComponentsPage = React.createClass({
 
                 </div>
 
-                {/* Tooltip */}
+                {/* overlays */}
                 <div className='bs-docs-section'>
-                  <h1 id='tooltips' className='page-header'>Tooltips <small>Tooltip</small></h1>
-                  <h2 id='tooltips-examples'>Example tooltips</h2>
+                  <h1 id='overlays' className='page-header'>Overlays <small>Overlay, Tooltip, Popover</small></h1>
 
-                  <p>Tooltip component.</p>
-                  <ReactPlayground codeText={Samples.TooltipBasic} />
+                  <h2 id='tooltips-examples'>Overlay</h2>
+                  <p>
+                    Overlays allow components to be rendered and positioned to the left, right, top, or bottom of another component.
+                    They are perfect for simple tooltips or even more complicated popups.
+                  </p>
+                  <ReactPlayground codeText={Samples.Overlay} />
 
-                  <p>Positioned tooltip component.</p>
-                  <ReactPlayground codeText={Samples.TooltipPositioned} />
+                  <h2 id='tooltips-examples'>Overlay Trigger</h2>
+                  <p>
+                    Often you will want to show or hide and Overlay in response to an action by its target, such as hovering over a link.
+                    Since this is such a common pattern we provide the <code>OverlayTrigger</code> component to reduce the amount of boilerplate
+                    you need to write to implement this pattern.
+                  </p>
+                  <ReactPlayground codeText={Samples.OverlayTrigger} />
 
-                  <p>Positioned tooltip in copy.</p>
-                  <ReactPlayground codeText={Samples.TooltipInCopy} />
 
-                  <h3 id='tooltip-props'>Props</h3>
+                  {/* Tooltip */}
+                  <div className='bs-docs-section'>
+                    <h2 id='tooltips' >Tooltip</h2>
+                    <p>
+                      You don't always need to create custom styling for your overlays. Bootstrap provides two great options out of the box.
+                      Tooltips can be used inside an <code>Overlay</code> Component, or an <code>OverlayTrigger</code>
+                    </p>
+                    <ReactPlayground codeText={Samples.TooltipBasic} exampleClassName='tooltip-static'/>
 
-                  <PropTable component='Tooltip'/>
+                    <p>Positioned tooltip component.</p>
+                    <ReactPlayground codeText={Samples.TooltipPositioned} />
 
-                </div>
+                    <p>Positioned tooltip in copy.</p>
+                    <ReactPlayground codeText={Samples.TooltipInCopy} />
+                  </div>
 
-                {/* Popover */}
-                <div className='bs-docs-section'>
-                  <h1 id='popovers' className='page-header'>Popovers <small>Popover</small></h1>
-                  <h2 id='popovers-examples'>Example popovers</h2>
+                  {/* Popover */}
+                  <div className='bs-docs-section'>
+                    <h2 id='popovers'>Popovers</h2>
 
-                  <p>Popover component.</p>
-                  <ReactPlayground codeText={Samples.PopoverBasic} />
+                    <p>
+                      The Popover component, like the Tooltip can be used with an <code>Overlay</code> Component, or an <code>OverlayTrigger</code>.
+                      Unlike the Tooltip popovers are designed to display more reobust information about their targets.
+                    </p>
+                    <ReactPlayground codeText={Samples.PopoverBasic}/>
 
-                  <p>Positioned popover component.</p>
-                  <ReactPlayground codeText={Samples.PopoverPositioned} />
+                    <p>Positioned popover component.</p>
+                    <ReactPlayground codeText={Samples.PopoverPositioned} />
 
-                  <p>Trigger behaviors. It's inadvisable to use <code>"hover"</code> or <code>"focus"</code> triggers for popovers, because they have poor accessibility from keyboard and on mobile devices.</p>
-                  <ReactPlayground codeText={Samples.PopoverTriggerBehaviors} />
+                    <p>Trigger behaviors. It's inadvisable to use <code>"hover"</code> or <code>"focus"</code> triggers for popovers, because they have poor accessibility from keyboard and on mobile devices.</p>
+                    <ReactPlayground codeText={Samples.PopoverTriggerBehaviors} />
 
-                  <p>Popover component in container.</p>
-                  <ReactPlayground codeText={Samples.PopoverContained} exampleClassName='bs-example-popover-contained' />
+                    <p>Popover component in container.</p>
+                    <ReactPlayground codeText={Samples.PopoverContained} exampleClassName='bs-example-popover-contained' />
 
-                  <p>Positioned popover components in scrolling container.</p>
-                  <ReactPlayground codeText={Samples.PopoverPositionedScrolling} exampleClassName='bs-example-popover-scroll' />
+                    <p>Positioned popover components in scrolling container.</p>
+                    <ReactPlayground codeText={Samples.PopoverPositionedScrolling} exampleClassName='bs-example-popover-scroll' />
 
-                  <h3 id='popover-props'>Props</h3>
+                    <h3 id='popover-props'>Props</h3>
 
-                  <PropTable component='Popover'/>
+                    <PropTable component='Popover'/>
+                  </div>
                 </div>
 
                 {/* Progress Bar */}
@@ -808,6 +835,7 @@ const ComponentsPage = React.createClass({
                     </SubNav>
                     <NavItem href='#panels' key={4}>Panels</NavItem>
                     <NavItem href='#modals' key={5}>Modals</NavItem>
+                    <NavItem href='#overlays' key={27}>Overlays</NavItem>
                     <NavItem href='#tooltips' key={6}>Tooltips</NavItem>
                     <NavItem href='#popovers' key={7}>Popovers</NavItem>
                     <NavItem href='#progress' key={8}>Progress bars</NavItem>
