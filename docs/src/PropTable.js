@@ -115,7 +115,7 @@ const PropTable = React.createClass({
       case 'union':
         return type.value.map(val => this.getType({ type: val })).join(' | ');
       case 'array':
-        return `array<${this.getDisplayTypeName(type.value.name)}>`;
+        return `array<${this.getType(type.value)}>`;
       case 'enum':
         return this.renderEnum(type);
       case 'custom':
