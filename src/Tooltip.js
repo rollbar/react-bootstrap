@@ -9,8 +9,13 @@ const Tooltip = React.createClass({
   mixins: [BootstrapMixin, FadeMixin],
 
   propTypes: {
-    id: CustomPropTypes.isRequiredForA11y(
-          React.PropTypes.string),
+    /**
+     * An html id attribute, necessary for accessibility
+     * @type {string}
+     * @required
+     */
+    id: CustomPropTypes.isRequiredForA11y(React.PropTypes.string),
+
     placement: React.PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
     positionLeft: React.PropTypes.number,
     positionTop: React.PropTypes.number,

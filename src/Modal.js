@@ -122,7 +122,7 @@ const ModalMarkup = React.createClass({
     closeButton: React.PropTypes.bool,
 
     /**
-     * Open and close the Modal wish a slide and fade animation.
+     * Open and close the Modal with a slide and fade animation.
      */
     animation: React.PropTypes.bool,
     /**

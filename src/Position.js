@@ -3,7 +3,7 @@ import domUtils from './utils/domUtils';
 import { calcOverlayPosition } from './utils/overlayPositionUtils';
 import CustomPropTypes from './utils/CustomPropTypes';
 
-class PositionedComponent extends React.Component {
+class Position extends React.Component {
 
   constructor(props, context){
     super(props, context);
@@ -74,7 +74,7 @@ class PositionedComponent extends React.Component {
   }
 }
 
-PositionedComponent.propTypes = {
+Position.propTypes = {
   /**
    * The target DOM node the Component is positioned next too.
    */
@@ -93,10 +93,10 @@ PositionedComponent.propTypes = {
   placement:        React.PropTypes.oneOf(['top', 'right', 'bottom', 'left'])
 };
 
-PositionedComponent.defaultProps = {
+Position.defaultProps = {
   containerPadding: 0,
   placement:        'right'
 };
 
 
-export default PositionedComponent;
+export default Position;

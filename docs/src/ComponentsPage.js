@@ -6,8 +6,6 @@ import Affix from '../../src/Affix';
 import Nav from '../../src/Nav';
 import SubNav from '../../src/SubNav';
 import NavItem from '../../src/NavItem';
-import Table from '../../src/Table';
-import PropRow from './PropRow';
 
 import NavMain from './NavMain';
 import PageHeader from './PageHeader';
@@ -309,7 +307,19 @@ const ComponentsPage = React.createClass({
                   <h4>Modal</h4>
                   <PropTable component='Modal'/>
 
-                  <h4>ModalTrigger</h4>
+                  <h4>Modal.Header</h4>
+                  <PropTable component='ModalHeader'/>
+
+                  <h4>Modal.Title</h4>
+                  <PropTable component='ModalTitle'/>
+
+                  <h4>Modal.Body</h4>
+                  <PropTable component='ModalBody'/>
+
+                  <h4>Modal.Footer</h4>
+                  <PropTable component='ModalFooter'/>
+
+                  <h4>ModalTrigger <strong className='text-danger'>Deprecated: use the Modal directly to manage it's visibility</strong></h4>
                   <PropTable component='ModalTrigger'/>
 
                 </div>
@@ -318,14 +328,14 @@ const ComponentsPage = React.createClass({
                 <div className='bs-docs-section'>
                   <h1 id='overlays' className='page-header'>Overlays <small>Overlay, Tooltip, Popover</small></h1>
 
-                  <h2 id='tooltips-examples'>Overlay</h2>
+                  <h2 id='overlays-examples'>Overlay</h2>
                   <p>
                     Overlays allow components to be rendered and positioned to the left, right, top, or bottom of another component.
                     They are perfect for simple tooltips or even more complicated popups.
                   </p>
                   <ReactPlayground codeText={Samples.Overlay} />
 
-                  <h2 id='tooltips-examples'>Overlay Trigger</h2>
+                  <h2 id='overlays-examples'>Overlay Trigger</h2>
                   <p>
                     Often you will want to show or hide and Overlay in response to an action by its target, such as hovering over a link.
                     Since this is such a common pattern we provide the <code>OverlayTrigger</code> component to reduce the amount of boilerplate
@@ -333,6 +343,13 @@ const ComponentsPage = React.createClass({
                   </p>
                   <ReactPlayground codeText={Samples.OverlayTrigger} />
 
+                  <h3 id='overlays-props'>Props</h3>
+
+                  <h4>Overlay</h4>
+                  <PropTable component='Overlay'/>
+
+                  <h4>OverlayTrigger</h4>
+                  <PropTable component='OverlayTrigger'/>
 
                   {/* Tooltip */}
                   <div className='bs-docs-section'>
@@ -348,6 +365,10 @@ const ComponentsPage = React.createClass({
 
                     <p>Positioned tooltip in copy.</p>
                     <ReactPlayground codeText={Samples.TooltipInCopy} />
+
+                    <h3 id='tooltips-props'>Props</h3>
+                    <PropTable component='Tooltip'/>
+
                   </div>
 
                   {/* Popover */}

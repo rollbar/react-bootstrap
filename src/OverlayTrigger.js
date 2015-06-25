@@ -26,23 +26,56 @@ function isOneOf(one, of) {
 const OverlayTrigger = React.createClass({
 
   propTypes: {
-
+    /**
+     * The event or action that toggles the overlay visibility.
+     */
     trigger: React.PropTypes.oneOfType([
       React.PropTypes.oneOf(['manual', 'click', 'hover', 'focus']),
       React.PropTypes.arrayOf(React.PropTypes.oneOf(['click', 'hover', 'focus']))
     ]),
 
+    /**
+     * A millisecond delay amount to show and hide the Overlay once triggered
+     */
     delay: React.PropTypes.number,
+    /**
+     * A millisecond delay amount before showing the Overlay once triggered.
+     */
     delayShow: React.PropTypes.number,
+    /**
+     * A millisecond delay amount before hiding the Overlay once triggered.
+     */
     delayHide: React.PropTypes.number,
 
+    /**
+     * The initial visibility state of the Overlay, for more nuanced visibility controll consider
+     * using the Overlay component directly.
+     */
     defaultOverlayShown: React.PropTypes.bool,
 
+    /**
+     * An element or text to overlay next to the target.
+     */
     overlay: React.PropTypes.node.isRequired,
+    /**
+     * @private
+     */
     onBlur: React.PropTypes.func,
+    /**
+     * @private
+     */
     onClick: React.PropTypes.func,
+    /**
+     * @private
+     */
     onFocus: React.PropTypes.func,
+    /**
+     * @private
+     */
     onMouseEnter: React.PropTypes.func,
+    /**
+     * @private
+     */
     onMouseLeave: React.PropTypes.func,
 
     container: CustomPropTypes.mountable,

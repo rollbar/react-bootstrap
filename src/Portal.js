@@ -1,4 +1,5 @@
 import React from 'react';
+import CustomPropTypes from './utils/CustomPropTypes';
 import { OverlayMixin } from './OverlayMixin';
 
 let Portal = React.createClass({
