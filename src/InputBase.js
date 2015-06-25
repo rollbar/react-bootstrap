@@ -49,14 +49,16 @@ class InputBase extends React.Component {
   }
 
   renderInputGroup(children) {
+    let addonBeforeClasses = classnames(this.props.addonBeforeClasses);
     let addonBefore = this.props.addonBefore ? (
-      <span className="input-group-addon" key="addonBefore">
+      <span className=addonBeforeClasses key="addonBefore">
         {this.props.addonBefore}
       </span>
     ) : null;
 
+    var addonAfterClasses = classnames(this.props.addonAfterClasses);
     let addonAfter = this.props.addonAfter ? (
-      <span className="input-group-addon" key="addonAfter">
+      <span className=addonAfterClasses key="addonAfter">
         {this.props.addonAfter}
       </span>
     ) : null;
@@ -181,11 +183,12 @@ class InputBase extends React.Component {
     return !this.isCheckboxOrRadio() ? [
       this.renderLabel(),
       this.renderWrapper([
+        this.props.helpPosition === 'top' ? this.renderHelp() : null,
         this.renderInputGroup(
           this.renderInput()
         ),
         this.renderIcon(),
-        this.renderHelp()
+        this.props.helpPosition === 'bottom' ? this.renderHelp() : null
       ])
     ] : this.renderWrapper([
       this.renderCheckboxAndRadioWrapper(
@@ -207,8 +210,11 @@ InputBase.propTypes = {
   type: React.PropTypes.string,
   label: React.PropTypes.node,
   help: React.PropTypes.node,
+  helpPosition: React.PropTypes.string,
   addonBefore: React.PropTypes.node,
+  addonBeforeClasses: React.PropTypes.any,
   addonAfter: React.PropTypes.node,
+  addonAfterClasses: React.PropTypes.any,
   buttonBefore: React.PropTypes.node,
   buttonAfter: React.PropTypes.node,
   bsSize: React.PropTypes.oneOf(['small', 'medium', 'large']),
