@@ -3,7 +3,6 @@ import React from 'react';
 import classNames from 'classnames';
 import BootstrapMixin from './BootstrapMixin';
 import FadeMixin from './FadeMixin';
-import Overlay from './Overlay';
 
 const Popover = React.createClass({
 
