@@ -49,14 +49,14 @@ class InputBase extends React.Component {
   }
 
   renderInputGroup(children) {
-    let addonBeforeClasses = classnames(this.props.addonBeforeClasses);
+    let addonBeforeClasses = classNames(this.props.addonBeforeClasses);
     let addonBefore = this.props.addonBefore ? (
       <span className={addonBeforeClasses} key="addonBefore">
         {this.props.addonBefore}
       </span>
     ) : null;
 
-    var addonAfterClasses = classnames(this.props.addonAfterClasses);
+    var addonAfterClasses = classNames(this.props.addonAfterClasses);
     let addonAfter = this.props.addonAfter ? (
       <span className={addonAfterClasses} key="addonAfter">
         {this.props.addonAfter}
